@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M &amp; M Papelaria — Papelaria &amp; Personalizados (projeto demonstrativo)</title>
+<meta name="description" content="Presentes únicos, feitos com carinho. Agendas, cadernos, lembranças e mimos personalizados. Peça seu orçamento pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#1E4DA8;--blue2:#163A80;--pink:#F2709F;--pink2:#D9548A;--blush:#FFE4EE;--sky:#DCEEFF;--cream:#FFF9F3;--sun:#FFD66B;--ink:#23294A;--mut:#5F6685;--line:#EBDDE4;--r:26px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:Nunito,system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;-webkit-text-size-adjust:100%;overflow-x:hidden}
+h1,h2,h3,.fr{font-family:Fredoka,Nunito,system-ui,sans-serif;font-weight:600;letter-spacing:-.01em}
+a{color:inherit}
+.wrap{width:min(1080px,100% - 32px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:10px}
+.demo{background:var(--ink);color:#E6E9FF;font-size:12.5px;text-align:center;padding:8px 14px;line-height:1.4}
+.demo b{color:#fff}
+
+header.top{position:sticky;top:0;z-index:40;background:rgba(255,249,243,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:2px dashed var(--line)}
+.bar{display:flex;align-items:center;gap:14px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;line-height:1}
+.mark{font:700 26px Fredoka,sans-serif;color:var(--blue);letter-spacing:-.03em;display:inline-flex;align-items:center;gap:2px}
+.mark i{font-style:normal;color:var(--pink)}
+.brand small{display:block;font:600 11px Fredoka,sans-serif;color:var(--pink2);letter-spacing:.14em;text-transform:uppercase;margin-top:3px}
+.tabs{display:flex;gap:4px;margin-left:auto}
+.tab{white-space:nowrap;text-decoration:none;font-weight:800;font-size:15px;padding:10px 16px;min-height:44px;display:inline-flex;align-items:center;border-radius:999px;color:var(--ink)}
+.tab:hover{background:var(--blush)}
+.tab.active{background:var(--blue);color:#fff}
+.bar{height:auto;padding:10px 0;flex-wrap:wrap}
+@media(max-width:700px){.tabs{width:100%;margin:0;gap:0;justify-content:space-between}.tab{flex:1;justify-content:center;padding:10px 5px;font-size:11.5px;white-space:nowrap;flex:0 1 auto}.brand{margin:0 auto 0 0}}
+.page{display:none;min-height:70vh}
+.page.show{display:block}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font:600 17px Fredoka,sans-serif;text-decoration:none;padding:15px 26px;min-height:50px;border-radius:999px;border:2px solid transparent;cursor:pointer;transition:transform .2s;line-height:1.1}
+.btn:hover{transform:translateY(-2px) rotate(-.6deg)}
+.btn.pink{background:var(--pink);color:#fff;box-shadow:0 5px 0 var(--pink2)}
+.btn.blue{background:var(--blue);color:#fff;box-shadow:0 5px 0 var(--blue2)}
+.btn.line{border-color:var(--blue);color:var(--blue);background:#fff}
+.btn.wa{background:#25D366;color:#fff;box-shadow:0 5px 0 #1AA84F}
+.btn svg{width:20px;height:20px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+
+/* hero */
+.hero{position:relative;padding:44px 0 56px;overflow:hidden;background:
+  radial-gradient(circle at 1px 1px,rgba(30,77,168,.12) 1.2px,transparent 1.4px) 0 0/22px 22px,linear-gradient(180deg,var(--sky),var(--cream))}
+.hero .wrap{display:grid;gap:30px;align-items:center}
+@media(min-width:880px){.hero .wrap{grid-template-columns:1.05fr .95fr}.hero{padding:72px 0 84px}}
+.tag{display:inline-block;background:#fff;border:2px dashed var(--pink);color:var(--pink2);font:600 14px Fredoka,sans-serif;padding:6px 16px;border-radius:999px;transform:rotate(-2deg)}
+.hero h1{font-size:clamp(36px,8vw,60px);line-height:1.05;margin:18px 0 14px;color:var(--blue)}
+.hero h1 span{color:var(--pink);position:relative;white-space:nowrap}
+.hero h1 span::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:12px;background:var(--sun);border-radius:8px;z-index:-1;opacity:.85}
+.hero p.lead{font-size:18px;color:var(--mut);max-width:46ch}
+.hero .btns{margin-top:26px}
+.art{position:relative;max-width:440px;width:100%;margin-inline:auto;aspect-ratio:1/.95}
+.art svg{width:100%;height:100%;overflow:visible}
+.fl{animation:fl 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.fl2{animation-delay:-2s}.fl3{animation-delay:-3.4s}
+@keyframes fl{50%{transform:translateY(-9px) rotate(2deg)}}
+
+section{padding:62px 0}
+.eb{font:600 14px Fredoka,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--pink2)}
+h2{font-size:clamp(28px,5.4vw,42px);line-height:1.1;margin:6px 0 10px;color:var(--blue)}
+.sub{color:var(--mut);font-size:17px;max-width:58ch}
+.head{margin-bottom:30px;text-align:center}
+
+/* produtos */
+.grid{display:grid;gap:16px}
+@media(min-width:620px){.g4{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.g4{grid-template-columns:repeat(4,1fr)}}
+.pc{text-align:center;background:#fff;border:2px solid var(--line);border-radius:var(--r);padding:22px 20px 20px;position:relative;transition:transform .25s,box-shadow .25s,border-color .25s}
+.pc:hover{transform:translateY(-6px) rotate(-.8deg);border-color:var(--pink);box-shadow:0 18px 30px -18px rgba(217,84,138,.5)}
+.pc .ic{height:92px;border-radius:20px;display:grid;place-items:center;margin-bottom:14px}
+.pc .ic svg{width:72px;height:72px}
+.pc h3{font-size:22px;color:var(--blue)}
+.pc p{color:var(--mut);font-size:15px;margin:4px 0 14px}
+.pc a{font:600 15px Fredoka,sans-serif;color:var(--pink2);text-decoration:none}
+.pc a:hover{text-decoration:underline}
+.pc::before{content:"";position:absolute;top:-9px;left:24px;width:62px;height:20px;background:var(--sun);opacity:.85;border-radius:3px;transform:rotate(-4deg)}
+.pc:nth-child(2)::before{background:var(--pink);left:auto;right:24px;transform:rotate(5deg)}
+.pc:nth-child(3)::before{background:#9CCBFF}
+.pc:nth-child(4)::before{background:#B6E3C5;left:auto;right:24px;transform:rotate(5deg)}
+.note{font-size:13.5px;color:var(--mut);margin-top:18px}
+
+/* como pedir */
+.how{background:var(--blush)}
+.steps{display:grid;gap:16px;counter-reset:s}
+@media(min-width:760px){.steps{grid-template-columns:repeat(4,1fr)}}
+.st{background:#fff;border-radius:var(--r);padding:24px 20px;position:relative;text-align:center}
+.st b{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;font:600 20px Fredoka,sans-serif;margin:0 auto 12px}
+.st:nth-child(even) b{background:var(--pink)}
+.st h3{font-size:20px;color:var(--blue);margin-bottom:4px}
+.st p{color:var(--mut);font-size:15px}
+
+/* orçamento */
+.q{display:grid;gap:28px;align-items:start}
+@media(min-width:900px){.q{grid-template-columns:.8fr 1.2fr;gap:56px}}
+.ticks{list-style:none;margin-top:18px;display:grid;gap:10px}
+.ticks li{display:flex;gap:10px;font-weight:700}
+.ticks li::before{content:"♥";color:var(--pink);flex:none}
+.form{background:#fff;border:2px solid var(--line);border-radius:30px;padding:24px;box-shadow:0 26px 50px -32px rgba(30,77,168,.5)}
+.row{display:grid;gap:14px}
+@media(min-width:560px){.row.c2{grid-template-columns:1fr 1fr}}
+.form label{display:block;font-weight:800;font-size:14px;margin-bottom:14px}
+.form label span{display:block;margin-bottom:6px}
+.in{width:100%;font:600 16px Nunito,sans-serif;color:var(--ink);padding:13px 14px;min-height:50px;border:2px solid var(--line);border-radius:16px;background:#fff;outline:0;appearance:none;-webkit-appearance:none}
+select.in{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23D9548A' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+textarea.in{min-height:96px;resize:vertical}
+.in:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(242,112,159,.18)}
+#prev{display:none;margin-top:18px;background:#EDFBF1;border:2px solid #B8E6C8;border-radius:20px;padding:16px}
+#prev.show{display:block}
+#prev pre{white-space:pre-wrap;font:600 14.5px Nunito,sans-serif;background:#fff;border-radius:14px;padding:12px;margin:8px 0 12px;border:1px solid #CDEED9}
+.small{font-size:13px;color:var(--mut)}
+
+/* insta */
+.ig{background:linear-gradient(135deg,var(--blue),#2D63C8);color:#fff;border-radius:34px;padding:34px 24px;display:grid;gap:18px;align-items:center;position:relative;overflow:hidden}
+@media(min-width:800px){.ig{grid-template-columns:1fr auto;padding:44px}}
+.ig::after{content:"";position:absolute;right:-60px;top:-70px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.1)}
+.ig h2{color:#fff;margin:0 0 6px}
+.ig p{color:#DDE8FF;max-width:48ch}
+.ig>*{position:relative;z-index:1}
+
+/* faq */
+.faq{max-width:760px;margin-inline:auto}
+details{background:#fff;border:2px solid var(--line);border-radius:20px;margin-bottom:10px;overflow:hidden}
+summary{list-style:none;cursor:pointer;padding:18px 54px 18px 20px;font:600 18px Fredoka,sans-serif;color:var(--blue);position:relative;min-height:56px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:16px;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;background:linear-gradient(currentColor,currentColor) center/14px 3px no-repeat,linear-gradient(currentColor,currentColor) center/3px 14px no-repeat,var(--blush);color:var(--pink2);transition:transform .25s,background-color .25s}
+details[open] summary::after{transform:translateY(-50%) rotate(45deg);color:#fff;background:linear-gradient(currentColor,currentColor) center/14px 3px no-repeat,linear-gradient(currentColor,currentColor) center/3px 14px no-repeat,var(--pink)}
+details p{padding:0 20px 18px;color:var(--mut)}
+
+footer{background:var(--ink);color:#C9CEF0;padding:34px 0 100px;font-size:14px}
+footer b{color:#fff}
+footer a{color:#fff}
+.fab{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;font:600 16px Fredoka,sans-serif;border-radius:999px;padding:14px 20px 14px 16px;box-shadow:0 12px 26px rgba(0,0,0,.3)}
+.fab svg{width:26px;height:26px}
+.fab span{display:none}
+@media(min-width:640px){.fab span{display:inline}}
+@media(max-width:639px){.fab{padding:15px}}
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.js .rv.vis{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<div class="demo"><b>Projeto demonstrativo</b> criado pela Agência Sites no Farol como sugestão para a M &amp; M Papelaria. Textos, imagens e telefone são ilustrativos; o site real usaria as fotos e os dados oficiais.</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa" viewBox="0 0 32 32"><path fill="currentColor" d="M16 3.2A12.7 12.7 0 0 0 5 22.3L3.2 28.8l6.7-1.7A12.7 12.7 0 1 0 16 3.2zm0 2.3a10.4 10.4 0 1 1-5.3 19.4l-.4-.2-3.9 1 1-3.8-.3-.4A10.4 10.4 0 0 1 16 5.5zm-3.6 4.6c-.3 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3.1s1.4 3.6 1.6 3.9c.2.2 2.6 4.2 6.5 5.7 3.2 1.3 3.9 1 4.6.9.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5-.4-.2-2.3-1.1-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.3 1.6-.2.3-.5.3-.9.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.3-2.1-2.7-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7l-1.2-3c-.3-.7-.6-.6-.9-.6z"/></symbol>
+  <symbol id="heart" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.1C.9 8.6 2.6 5 6 5c2.1 0 3.4 1.1 4.1 2.2h3.8C14.6 6.1 15.9 5 18 5c3.4 0 5.1 3.6 3.6 6.9C19.5 16.4 12 21 12 21z" fill="currentColor"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="#inicio" aria-label="M &amp; M Papelaria, início"><span><span class="mark">M<i>&amp;</i>M</span><small>Papelaria</small></span></a>
+    <nav class="tabs" aria-label="Principal">
+      <a href="#inicio" class="tab" data-page="inicio">Início</a>
+      <a href="#produtos" class="tab" data-page="produtos">Produtos</a>
+      <a href="#como" class="tab" data-page="como">Como pedir</a>
+      <a href="#orcamento" class="tab" data-page="orcamento">Orçamento</a>
+      <a href="#faq" class="tab" data-page="faq">Dúvidas</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+<div class="page" id="p-inicio">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="tag">Papelaria &amp; Personalizados</span>
+      <h1>Presentes únicos, feitos com <span>carinho</span></h1>
+      <p class="lead">Agendas, cadernos, lembranças e mimos personalizados do seu jeito. Conte a sua ideia e a gente faz um orçamento pelo WhatsApp.</p>
+      <div class="btns">
+        <a class="btn pink" href="#orcamento">Pedir orçamento</a>
+        <a class="btn line" href="#produtos">Ver produtos</a>
+      </div>
+    </div>
+    <div class="art" aria-hidden="true">
+      <svg viewBox="0 0 400 380">
+        <circle cx="200" cy="190" r="165" fill="#fff" opacity=".7"/>
+        <g class="fl"><g transform="rotate(-8 150 200)">
+          <rect x="82" y="96" width="156" height="206" rx="16" fill="#1E4DA8"/>
+          <rect x="92" y="96" width="146" height="206" rx="14" fill="#2D63C8"/>
+          <rect x="108" y="124" width="104" height="62" rx="12" fill="#FFE4EE"/>
+          <text x="160" y="164" text-anchor="middle" font-family="Fredoka,sans-serif" font-weight="700" font-size="30" fill="#1E4DA8">M<tspan fill="#F2709F">&amp;</tspan>M</text>
+          <rect x="116" y="208" width="88" height="8" rx="4" fill="#fff" opacity=".6"/><rect x="116" y="226" width="66" height="8" rx="4" fill="#fff" opacity=".4"/>
+          <g fill="#FFD66B"><circle cx="82" cy="128" r="6"/><circle cx="82" cy="160" r="6"/><circle cx="82" cy="192" r="6"/><circle cx="82" cy="224" r="6"/><circle cx="82" cy="256" r="6"/></g>
+        </g></g>
+        <g class="fl fl2"><g transform="rotate(10 280 150)">
+          <rect x="226" y="84" width="118" height="146" rx="14" fill="#F2709F"/>
+          <rect x="226" y="84" width="118" height="26" rx="14" fill="#D9548A"/>
+          <rect x="242" y="130" width="86" height="8" rx="4" fill="#fff" opacity=".8"/><rect x="242" y="148" width="64" height="8" rx="4" fill="#fff" opacity=".6"/><rect x="242" y="166" width="76" height="8" rx="4" fill="#fff" opacity=".6"/>
+          <circle cx="314" cy="206" r="14" fill="#FFD66B"/>
+        </g></g>
+        <g class="fl fl3"><g transform="rotate(-30 300 300)"><rect x="250" y="288" width="120" height="16" rx="4" fill="#FFD66B"/><polygon points="370,288 392,296 370,304" fill="#F6D9B0"/><polygon points="384,293 392,296 384,299" fill="#23294A"/><rect x="250" y="288" width="22" height="16" rx="3" fill="#F2709F"/></g></g>
+        <use href="#heart" x="70" y="52" width="46" height="46" style="color:#F2709F" class="fl fl2"/>
+        <use href="#heart" x="318" y="30" width="30" height="30" style="color:#1E4DA8" class="fl"/>
+        <g fill="#FFD66B"><path d="M44 210l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/><path d="M360 230l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="instagram" style="padding-top:20px">
+  <div class="wrap">
+    <div class="ig rv">
+      <div><h2>Acompanhe no Instagram</h2><p>Veja as novidades, os trabalhos feitos e peça também pelo Direct.</p></div>
+      <a class="btn pink" href="https://www.instagram.com/mempersonalizado/" target="_blank" rel="noopener">@mempersonalizado</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="page" id="p-produtos">
+<section id="produtos">
+  <div class="wrap">
+    <div class="head rv"><span class="eb">Nossos produtos</span><h2>Tudo feito com carinho para você</h2><p class="sub">Escolha uma categoria e peça o seu personalizado. Cada pedido é feito sob medida.</p></div>
+    <div class="grid g4">
+      <article class="pc rv"><div class="ic" style="background:#FFE4EE"><svg viewBox="0 0 72 72" aria-hidden="true"><rect x="14" y="8" width="44" height="56" rx="6" fill="#F2709F"/><rect x="14" y="8" width="8" height="56" rx="4" fill="#D9548A"/><rect x="28" y="20" width="22" height="4" rx="2" fill="#fff"/><rect x="28" y="30" width="16" height="4" rx="2" fill="#fff" opacity=".7"/><circle cx="46" cy="50" r="5" fill="#FFD66B"/></svg></div><h3>Agendas</h3><p>Capas personalizadas, com o seu nome, tema ou cores favoritas.</p><a href="#orcamento" data-pick="Agendas">Pedir orçamento →</a></article>
+      <article class="pc rv"><div class="ic" style="background:#DCEEFF"><svg viewBox="0 0 72 72" aria-hidden="true"><rect x="12" y="10" width="48" height="52" rx="6" fill="#1E4DA8"/><rect x="18" y="16" width="36" height="22" rx="5" fill="#fff"/><text x="36" y="33" text-anchor="middle" font-family="Fredoka,sans-serif" font-weight="700" font-size="14" fill="#1E4DA8">Abc</text><rect x="20" y="46" width="32" height="4" rx="2" fill="#fff" opacity=".6"/><g fill="#FFD66B"><circle cx="12" cy="22" r="3"/><circle cx="12" cy="36" r="3"/><circle cx="12" cy="50" r="3"/></g></svg></div><h3>Cadernos</h3><p>Para estudar, trabalhar ou criar, com a capa que combina com você.</p><a href="#orcamento" data-pick="Cadernos">Pedir orçamento →</a></article>
+      <article class="pc rv"><div class="ic" style="background:#FFF1C9"><svg viewBox="0 0 72 72" aria-hidden="true"><rect x="12" y="26" width="48" height="34" rx="6" fill="#F2709F"/><rect x="12" y="20" width="48" height="12" rx="5" fill="#D9548A"/><rect x="32" y="20" width="8" height="40" fill="#FFD66B"/><path d="M36 20c-8-12-18-4-10 0M36 20c8-12 18-4 10 0" fill="none" stroke="#FFD66B" stroke-width="4" stroke-linecap="round"/></svg></div><h3>Lembranças</h3><p>Para aniversários, chás, formaturas e datas especiais.</p><a href="#orcamento" data-pick="Lembranças">Pedir orçamento →</a></article>
+      <article class="pc rv"><div class="ic" style="background:#E3F6EA"><svg viewBox="0 0 72 72" aria-hidden="true"><use href="#heart" x="10" y="12" width="52" height="52" style="color:#F2709F"/><circle cx="26" cy="30" r="4" fill="#fff" opacity=".7"/><path d="M52 8l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="#FFD66B"/></svg></div><h3>Mimos</h3><p>Pequenos presentes feitos com carinho para surpreender alguém.</p><a href="#orcamento" data-pick="Mimos">Pedir orçamento →</a></article>
+    </div>
+    <p class="note">Imagens ilustrativas. No site real entram as fotos dos produtos da M &amp; M, com catálogo e valores.</p>
+  </div>
+</section>
+
+</div>
+
+<div class="page" id="p-como">
+<section class="how" id="como">
+  <div class="wrap">
+    <div class="head rv"><span class="eb">Como pedir</span><h2>Simples, do início ao fim</h2></div>
+    <div class="steps">
+      <div class="st rv"><b>1</b><h3>Conte a ideia</h3><p>Chame no WhatsApp e diga o que você imagina.</p></div>
+      <div class="st rv"><b>2</b><h3>Receba o orçamento</h3><p>Enviamos o valor e o prazo para o seu pedido.</p></div>
+      <div class="st rv"><b>3</b><h3>Aprove o modelo</h3><p>Você vê como vai ficar e pede os ajustes.</p></div>
+      <div class="st rv"><b>4</b><h3>Receba com carinho</h3><p>Seu personalizado é produzido e combinamos a entrega.</p></div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="page" id="p-orcamento">
+<section id="orcamento">
+  <div class="wrap q">
+    <div class="rv">
+      <span class="eb">Orçamento</span>
+      <h2>Peça o seu personalizado</h2>
+      <p class="sub">Preencha em menos de um minuto. A mensagem já vai pronta para o WhatsApp.</p>
+      <ul class="ticks"><li>Sem compromisso</li><li>Sem cadastro e sem baixar aplicativo</li><li>Você também pode chamar pelo Direct do Instagram</li></ul>
+    </div>
+    <form class="form rv" id="bk" novalidate>
+      <div class="row c2">
+        <label><span>Seu nome</span><input class="in" name="nome" placeholder="Ex.: Ana Souza" autocomplete="name" required></label>
+        <label><span>O que você quer?</span>
+          <select class="in" name="prod" id="prod"><option>Agendas</option><option>Cadernos</option><option>Lembranças</option><option>Mimos</option><option>Outro (conto na mensagem)</option></select></label>
+      </div>
+      <div class="row c2">
+        <label><span>Quantidade</span><input class="in" name="qtd" type="number" min="1" inputmode="numeric" placeholder="Ex.: 1"></label>
+        <label><span>Para quando?</span><input class="in" name="data" type="date"></label>
+      </div>
+      <label><span>Conte a sua ideia</span><textarea class="in" name="obs" placeholder="Tema, cores, nome que vai na capa, ocasião…"></textarea></label>
+      <button class="btn pink" type="submit" style="width:100%">Montar mensagem</button>
+      <div id="prev" role="status" aria-live="polite">
+        <b>Tudo pronto! Confira a mensagem:</b>
+        <pre id="msg"></pre>
+        <a class="btn wa" id="wal" href="#" target="_blank" rel="noopener" style="width:100%"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#wa"/></svg>Enviar pelo WhatsApp</a>
+        <p class="small" style="margin-top:8px">Nesta demonstração o número é ilustrativo. No site real, abre a conversa com o WhatsApp da M &amp; M.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+</div>
+
+
+<div class="page" id="p-faq">
+<section id="faq">
+  <div class="wrap">
+    <div class="head rv" style="text-align:center"><span class="eb">Dúvidas</span><h2>Perguntas frequentes</h2></div>
+    <div class="faq rv">
+      <details open><summary>Como faço um pedido?</summary><p>É só preencher o orçamento aqui no site ou chamar no WhatsApp ou no Direct do Instagram. A gente responde com o valor e o prazo.</p></details>
+      <details><summary>Posso pedir algo diferente do que está no site?</summary><p>Pode! Os produtos são personalizados, então conte a sua ideia e vemos juntos o que é possível fazer.</p></details>
+      <details><summary>Como funciona o valor?</summary><p>Cada pedido é orçado conforme o produto, a quantidade e o nível de personalização.</p></details>
+      <details><summary>Quanto tempo leva para ficar pronto?</summary><p>O prazo depende do pedido e é combinado junto com o orçamento.</p></details>
+    </div>
+  </div>
+</section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>M &amp; M Papelaria</b> · Papelaria &amp; Personalizados · Presentes únicos, feitos com carinho</p>
+    <p style="margin-top:6px">Instagram: <a href="https://www.instagram.com/mempersonalizado/" target="_blank" rel="noopener">@mempersonalizado</a> · WhatsApp: (24) 90000-0000 (ilustrativo)</p>
+    <p style="margin-top:10px;opacity:.8">Projeto demonstrativo criado pela Agência Sites no Farol. Logo, fotos e dados oficiais seriam fornecidos pela M &amp; M Papelaria.</p>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/5524900000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#wa"/></svg><span>Peça pelo WhatsApp</span></a>
+
+<script>
+(function(){
+  var $=function(s){return document.querySelector(s)};
+  /* abas */
+  var pages=['inicio','produtos','como','orcamento','faq'];
+  function show(){
+    var id=location.hash.replace('#','');if(pages.indexOf(id)<0)id='inicio';
+    pages.forEach(function(p){
+      $('#p-'+p).classList.toggle('show',p===id);
+      var t=document.querySelector('.tab[data-page="'+p+'"]');t.classList.toggle('active',p===id);
+      if(p===id)t.setAttribute('aria-current','page');else t.removeAttribute('aria-current');
+    });
+    window.scrollTo(0,0);
+  }
+  addEventListener('hashchange',show);addEventListener('pageshow',show);
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]');if(!a)return;
+    var id=a.getAttribute('href').slice(1);if(pages.indexOf(id)<0)return;
+    e.preventDefault();if(location.hash!=='#'+id)location.hash=id;else show();
+  });
+  show();
+  /* revelar ao rolar */
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.12});
+    els.forEach(function(e,i){e.style.transitionDelay=(i%4)*70+'ms';io.observe(e)});
+  }else{els.forEach(function(e){e.classList.add('vis')})}
+  /* escolher produto pelos cards */
+  [].slice.call(document.querySelectorAll('[data-pick]')).forEach(function(a){a.addEventListener('click',function(){$('#prod').value=a.getAttribute('data-pick')})});
+  /* data mínima */
+  var t=new Date(),m=t.getFullYear()+'-'+('0'+(t.getMonth()+1)).slice(-2)+'-'+('0'+t.getDate()).slice(-2);
+  $('#bk').elements.data.min=m;
+  /* orçamento -> WhatsApp */
+  $('#bk').addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=this.elements,n=f.nome;
+    if(!n.value.trim()){n.style.borderColor='#D9548A';n.focus();$('#prev').classList.remove('show');return}
+    n.style.borderColor='';
+    var msg='Olá! Gostaria de um orçamento:\n👤 Nome: '+n.value.trim()
+      +'\n🎀 Produto: '+f.prod.value
+      +(f.qtd.value?'\n🔢 Quantidade: '+f.qtd.value:'')
+      +(f.data.value?'\n📅 Para: '+f.data.value.split('-').reverse().join('/'):'')
+      +(f.obs.value.trim()?'\n💬 Ideia: '+f.obs.value.trim():'');
+    $('#msg').textContent=msg;
+    $('#wal').href='https://wa.me/5524900000000?text='+encodeURIComponent(msg);
+    var p=$('#prev');p.classList.add('show');p.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+})();
+</script>
+</body>
+</html>
